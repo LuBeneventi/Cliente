@@ -1,6 +1,7 @@
 package com.MSCliente.Cliente.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
+@Entity
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +26,7 @@ public class Cliente {
     private String apCliente;
 
     @Column(length = 250, nullable = false)
-    private String correoCliente;
+    private String correo;
 
     @Column(length = 50, nullable = false)
     private String contraseña;
@@ -33,6 +35,6 @@ public class Cliente {
     private String dirCliente;
 
     public perfilCliente verPerfil() {
-        return new perfilCliente(nomCliente, apCliente, correoCliente, dirCliente);
+        return new perfilCliente(nomCliente, apCliente, correo, dirCliente);
     }
 }

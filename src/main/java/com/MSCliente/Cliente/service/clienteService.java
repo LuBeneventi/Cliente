@@ -12,6 +12,7 @@ import com.MSCliente.Cliente.repository.clienteRepository;
 
 @Service
 public class clienteService {
+    
     @Autowired
     private clienteRepository clienteRepository;
 
@@ -20,7 +21,7 @@ public class clienteService {
     }
 
     public Optional<Cliente> iniciarSesion(String correo, String contraseña) {
-        return clienteRepository.findByCorreoClienteAndContraseña(correo, contraseña);
+        return clienteRepository.findByCorreoAndContraseña(correo, contraseña);
     }
 
     public perfilCliente verPerfil(int idCliente) {

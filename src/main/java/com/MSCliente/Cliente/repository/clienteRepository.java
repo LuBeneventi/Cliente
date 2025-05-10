@@ -8,6 +8,6 @@ import com.MSCliente.Cliente.model.Cliente;
 @Repository
 public interface clienteRepository extends JpaRepository<Cliente, Integer>{
 
-    Optional<Cliente> findByCorreoClienteAndContraseña(String correoCliente, String contraseña);
+    Optional<Cliente> findByCorreoAndContraseña(String correo, String contraseña);
     
 } 

@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 public class perfilCliente {
     private String nomCliente;
     private String apCliente;
-    private String correoCliente;
+    private String correo;
     private String dirCliente;
 }
