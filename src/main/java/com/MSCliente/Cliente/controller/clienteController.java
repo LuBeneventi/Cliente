@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +27,11 @@ public class clienteController {
     private clienteService clienteService;
 
     @PostMapping("/registro")
-    public Cliente registrarse(@RequestBody Cliente cliente) {
-        return clienteService.Registrarse(cliente);
+    public ResponseEntity<Cliente> registrarse(@RequestBody Cliente cliente) {
+        if(cliente.getIdCliente() != 0 && clienteService.buscarID(cliente.getIdCliente())){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(clienteService.Registrarse(cliente), HttpStatus.OK);
     }
 
     @PostMapping("/login")
@@ -51,7 +56,11 @@ public class clienteController {
     }
 
     @GetMapping
-    public List<Cliente> listarClientes() {
-        return clienteService.listarClientes();
+    public ResponseEntity<List<Cliente>> listarClientes() {
+        List<Cliente> clientes = clienteService.listarClientes();
+        if(clientes.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(clientes,HttpStatus.OK);
     }
 }

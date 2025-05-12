@@ -42,4 +42,8 @@ public class clienteService {
         return clienteRepository.findAll();
     }
 
+    public boolean buscarID(int idCliente) {
+        return clienteRepository.existsById(idCliente);
+    }
+
 }
