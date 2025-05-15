@@ -46,4 +46,8 @@ public class clienteService {
         return clienteRepository.existsById(idCliente);
     }
 
+    public Optional<Cliente> buscar(int idCliente){
+        return clienteRepository.findByidCliente(idCliente);
+    }
+
 }

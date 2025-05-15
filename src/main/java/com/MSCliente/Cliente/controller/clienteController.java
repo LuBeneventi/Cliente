@@ -45,14 +45,15 @@ public class clienteController {
     }
 
     @DeleteMapping("/{id}/eliminar")
-    public void eliminarCuenta(@PathVariable int id) {
+    public ResponseEntity<Void> eliminarCuenta(@PathVariable int id) {
         clienteService.eliminarCuenta(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}/editar")
-    public Cliente editarDatos(@RequestBody Cliente cliente, @PathVariable int id) {
+    public ResponseEntity<Cliente> editarDatos(@RequestBody Cliente cliente, @PathVariable int id) {
         cliente.setIdCliente(id);
-        return clienteService.editarDatos(cliente);
+        return ResponseEntity.ok(clienteService.editarDatos(cliente));
     }
 
     @GetMapping
@@ -62,5 +63,12 @@ public class clienteController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(clientes,HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Cliente> buscarCliente(@PathVariable int id){
+        return clienteService.buscar(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }

@@ -9,5 +9,6 @@ import com.MSCliente.Cliente.model.Cliente;
 public interface clienteRepository extends JpaRepository<Cliente, Integer>{
 
     Optional<Cliente> findByCorreoAndContraseña(String correo, String contraseña);
+    Optional<Cliente> findByidCliente(int idCliente);
 
 } 
