@@ -25,7 +25,7 @@ public class Cliente {
     @Column(length = 50, nullable = false)
     private String apCliente;
 
-    @Column(length = 250, nullable = false)
+    @Column(length = 250, nullable = false, unique = true)
     private String correo;
 
     @Column(length = 50, nullable = false)

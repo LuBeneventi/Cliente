@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.MSCliente.Cliente.model.Cliente;
@@ -17,11 +19,19 @@ public class clienteService {
     private clienteRepository clienteRepository;
 
     public Cliente Registrarse(Cliente cliente) {
+        Optional<Cliente> existente = clienteRepository.existsByCorreo(cliente.getCorreo());
+        if(existente != null){
+            new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
         return clienteRepository.save(cliente);
     }
 
     public Optional<Cliente> iniciarSesion(String correo, String contraseña) {
         return clienteRepository.findByCorreoAndContraseña(correo, contraseña);
+    }
+
+    public Optional<Cliente> BuscarCorreo(String correo){
+        return clienteRepository.existsByCorreo(correo);
     }
 
     public perfilCliente verPerfil(int idCliente) {
