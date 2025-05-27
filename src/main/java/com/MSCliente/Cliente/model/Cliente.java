@@ -33,6 +33,7 @@ public class Cliente {
     @Column(length = 50, nullable = false)
     private String contraseña;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private estadoCliente estado;
 
