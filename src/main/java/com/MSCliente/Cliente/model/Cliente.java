@@ -2,6 +2,8 @@ package com.MSCliente.Cliente.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,6 +32,9 @@ public class Cliente {
 
     @Column(length = 50, nullable = false)
     private String contraseña;
+
+    @Enumerated(EnumType.STRING)
+    private estadoCliente estado;
 
     @Column(length = 100, nullable = false)
     private String dirCliente;

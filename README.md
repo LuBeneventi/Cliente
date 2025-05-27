@@ -1,17 +1,18 @@
-INSERT INTO `cliente` (`id_cliente`, `ap_cliente`, `contraseña`, `correo`, `dir_cliente`, `nom_cliente`)
-VALUES (101, 'Gómez', 'pass1234', 'gomez101@email.com', 'Calle 12 #34-56, Ciudad A', 'Laura');
+INSERT INTO `cliente`(`id_cliente`, `ap_cliente`, `contraseña`, `nom_cliente`, `dir_cliente`, `correo`, `estado`) 
+VALUES ('C001', 'Pérez', 'abc123', 'Juan', 'Av. Central 123', 'juan.perez@example.com', 'ACTIVO');
 
-INSERT INTO `cliente` (`id_cliente`, `ap_cliente`, `contraseña`, `correo`, `dir_cliente`, `nom_cliente`)
-VALUES (102, 'Martínez', 'securePass2025', 'martinez102@email.com', 'Av. Las Palmas 123, Ciudad B', 'Carlos');
+INSERT INTO `cliente`(`id_cliente`, `ap_cliente`, `contraseña`, `nom_cliente`, `dir_cliente`, `correo`, `estado`) 
+VALUES ('C002', 'López', 'pass456', 'María', 'Calle Falsa 456', 'maria.lopez@example.com', 'INACTIVO');
 
-INSERT INTO `cliente` (`id_cliente`, `ap_cliente`, `contraseña`, `correo`, `dir_cliente`, `nom_cliente`)
-VALUES (103, 'Ríos', 'miClaveSegura', 'rios103@email.com', 'Carrera 9 #10-20, Ciudad C', 'Fernanda');
+INSERT INTO `cliente`(`id_cliente`, `ap_cliente`, `contraseña`, `nom_cliente`, `dir_cliente`, `correo`, `estado`) 
+VALUES ('C003', 'García', 'secure789', 'Carlos', 'Av. Reforma 789', 'carlos.garcia@example.com', 'ACTIVO');
 
-INSERT INTO `cliente` (`id_cliente`, `ap_cliente`, `contraseña`, `correo`, `dir_cliente`, `nom_cliente`)
-VALUES (104, 'López', 'clave2025!', 'lopez104@email.com', 'Callejón 7, Sector Norte, Ciudad D', 'Andrés');
+INSERT INTO `cliente`(`id_cliente`, `ap_cliente`, `contraseña`, `nom_cliente`, `dir_cliente`, `correo`, `estado`) 
+VALUES ('C004', 'Ramírez', 'mypwd321', 'Laura', 'Col. Centro 321', 'laura.ramirez@example.com', 'INACTIVO');
 
-INSERT INTO `cliente` (`id_cliente`, `ap_cliente`, `contraseña`, `correo`, `dir_cliente`, `nom_cliente`)
-VALUES (105, 'Pérez', 'abcDEF123', 'perez105@email.com', 'Zona Centro, Plaza 5, Ciudad E', 'María');
+INSERT INTO `cliente`(`id_cliente`, `ap_cliente`, `contraseña`, `nom_cliente`, `dir_cliente`, `correo`, `estado`) 
+VALUES ('C005', 'Hernández', 'clave987', 'Andrés', 'Blvd. Norte 987', 'andres.hernandez@example.com', 'ACTIVO');
+
 
 
 {

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.MSCliente.Cliente.model.Cliente;
+import com.MSCliente.Cliente.model.estadoCliente;
 import com.MSCliente.Cliente.model.perfilCliente;
 import com.MSCliente.Cliente.repository.clienteRepository;
 
@@ -23,6 +24,7 @@ public class clienteService {
         if(existente != null){
             new ResponseEntity<>(HttpStatus.CONFLICT);
         }
+        cliente.setEstado(estadoCliente.ACTIVO);
         return clienteRepository.save(cliente);
     }
 
@@ -58,6 +60,25 @@ public class clienteService {
 
     public Optional<Cliente> buscar(int idCliente){
         return clienteRepository.findByidCliente(idCliente);
+    }
+
+    public Cliente desactivarCliente(int id){
+        Cliente buscado = clienteRepository.findById(id).orElseThrow();
+        if(buscado.getEstado() == estadoCliente.ACTIVO){
+            buscado.setEstado(estadoCliente.INACTIVO);
+            return clienteRepository.save(buscado);
+        }
+            throw new IllegalStateException("Es cliente ya esta inactivo");
+
+    }
+
+    public Cliente activaCliente(int id){
+        Cliente buscado = clienteRepository.findById(id).orElseThrow();
+        if(buscado.getEstado() == estadoCliente.INACTIVO){
+            buscado.setEstado(estadoCliente.ACTIVO);
+            return clienteRepository.save(buscado);
+        }
+        throw new IllegalStateException("Es cliente ya esta activo");
     }
 
 }
