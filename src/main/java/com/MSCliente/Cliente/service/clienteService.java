@@ -42,10 +42,6 @@ public class clienteService {
                 .orElse(null);
     }
 
-    public void eliminarCuenta(int idCliente) {
-        clienteRepository.deleteById(idCliente);
-    }
-
     public Cliente editarDatos(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
