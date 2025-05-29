@@ -39,11 +39,6 @@ public class clienteController {
         }
     }
 
-    @PostMapping("/login")
-    public Optional<Cliente> iniciarSesion(@RequestParam String correo, @RequestParam String contraseña) {
-        return clienteService.iniciarSesion(correo, contraseña);
-    }
-
     @GetMapping("/{id}/perfil")
     public perfilCliente verPerfil(@PathVariable int id) {
         return clienteService.verPerfil(id);
